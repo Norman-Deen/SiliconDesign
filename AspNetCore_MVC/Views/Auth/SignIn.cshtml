@@ -1,0 +1,59 @@
+﻿@model SignInViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section class="sign-in">
+    <div class="container">
+        <form method="post" asp-action="SignIn" asp-controller="Auth" class="row g-3 justify-content-md-center" id="signin" novalidate>
+
+            <div class="col-md-8">
+                <h1>Welcome Back</h1>
+                <p>Don't have an account yet? <a asp-controller="Auth" asp-action="SignUp">Sign up here.</a></p>
+            </div>
+
+            @if (!string.IsNullOrEmpty(ViewData["StatusMessage"] as string))
+            {
+                <div class="col-md-8">
+                    <div class="alert alert-danger">
+                        @ViewData["StatusMessage"]
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-8">
+                <label asp-for="Form.Email" class="form-label fw-semibold">Email address</label>
+                <input asp-for="Form.Email" class="form-control" required>
+                <span asp-validation-for="Form.Email"></span>
+            </div>
+
+            <div class="col-md-8">
+                <label asp-for="Form.Password" class="form-label fw-semibold">Password</label>
+                <input asp-for="Form.Password" class="form-control" required>
+                <span asp-validation-for="Form.Password"></span>
+            </div>
+
+            <div class="col-md-8">
+                <div class="form-check">
+                    <div id="Form-remember" class="col-md-8 checkbox">
+                        <div class="checkbox-group">
+                            <input asp-for="Form.RememberMe" type="checkbox" />
+                            <label asp-for="Form.RememberMe"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-8 d-grid">
+                <button class="btn btn-theme-s" type="submit">@Model.Title</button>
+            </div>
+
+            <p class="fw-semibold text-center"><a asp-controller="Account" asp-action="Forgot">Forgot your password?</a></p>
+
+        </form>
+    </div>
+
+</section>
+
+
+@await Html.PartialAsync("_ValidationScriptPartial")

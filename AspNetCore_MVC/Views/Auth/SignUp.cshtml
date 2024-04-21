@@ -1,0 +1,72 @@
+﻿@model SignUpViewModel
+@{
+    ViewData["Title"] = Model.Title; 
+}
+
+<div id="container mt-5" >
+
+   
+    <form method="post" asp-controller="Auth" asp-action="SignUp" class="row g-3 justify-content-md-center " id="signup" novalidate>
+
+        <div class="row g-3 justify-content-md-center">
+        <h1 class="col-md-8">Create Account</h1>
+        <p class="col-md-8">Already have an account? <a asp-controller="Auth" asp-action="SignIn">Sign in here.</a></p>
+    </div>
+
+           @if (!string.IsNullOrEmpty(ViewData["StatusMessage"] as string))
+            {
+                <div class="col-md-8">
+                    <div class="alert alert-danger">
+                        @ViewData["StatusMessage"]
+                    </div>
+                </div>
+            }
+
+        <div class="col-md-4">
+            <label asp-for="Form.FirstName" class="form-label fw-semibold">First name</label>
+            <input asp-for="Form.FirstName" type="text" class="form-control" required>
+            <span asp-validation-for="Form.FirstName"></span>
+        </div>
+
+        <div class="col-md-4" id="form-lastname">
+            <label asp-for="Form.LastName" class="form-label fw-semibold">Last name</label>
+            <input asp-for="Form.LastName" type="text" class="form-control" required>
+            <span asp-validation-for="Form.LastName"></span>
+        </div>
+
+        <div class="col-md-8" id="form-email">
+            <label asp-for="Form.Email" class="form-label fw-semibold">Email address</label>
+            <input asp-for="Form.Email" type="email" class="form-control" required>
+            <span asp-validation-for="Form.Email"></span>
+        </div>
+
+        <div class="col-md-8" id="form-password">
+            <label asp-for="Form.Password" class="form-label fw-semibold">Password</label>
+            <input asp-for="Form.Password" type="password" class="form-control" required>
+            <span asp-validation-for="Form.Password"></span>
+        </div>
+
+        <div class="col-md-8" id="form-confirm">
+            <label asp-for="Form.ConfirmPassword" class="form-label fw-semibold">Confirm password</label>
+            <input asp-for="Form.ConfirmPassword" type="password" class="form-control" required>
+            <span asp-validation-for="Form.ConfirmPassword"></span>
+        </div>
+
+        <div class="col-md-8">
+            <div class="form-check" id="form-terms">
+                <input asp-for="Form.TermsAndConditions" class=" form-check-input is-invalid" type="checkbox" id="invalidCheck3" required>
+                <label asp-for="Form.TermsAndConditions" class="form-check-label" for="invalidCheck3">I agree to the <a asp-controller="About" asp-action="Terms">Terms & Conditions.</a></label>
+                <span asp-validation-for="Form.TermsAndConditions"></span>
+            </div>
+        </div>
+
+        <div class="col-8 d-grid" id="form-submit">
+            <button class="btn btn-theme-s" type="submit">@Model.Title</button>
+        </div>
+
+    </form>
+
+</div>
+
+
+@await Html.PartialAsync("_ValidationScriptPartial")

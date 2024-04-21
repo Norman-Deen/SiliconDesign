@@ -1,0 +1,91 @@
+﻿@using WepApp.Models
+@model SubscribeViewModel
+
+
+<section id="subscribe">
+    <div class="container">
+        <h1>Don´t Want To Miss Anything?</h1>
+        <img src="images/icons/curly-arrows.svg" alt="">
+
+        @*  i add onsubmit to fix scroll issue *@
+
+
+
+        <form asp-fragment="subscribe" asp-controller="Home" method="post">
+
+            <div class="grid-box">
+                <h5>Sign up for Newsletters</h5>
+
+                <label>
+                    <input asp-for="DailyNewsletter" checked />
+                    <label asp-for="DailyNewsletter"></label>
+                </label>
+
+                <label>
+                    <input asp-for="AdvertisingUpdates" />
+                    <label asp-for="AdvertisingUpdates"></label>
+                </label>
+
+                <label>
+                    <input asp-for="WeekinReview" />
+                    <label asp-for="WeekinReview"></label>
+                </label>
+                <label>
+                    <input asp-for="EventUpdates" />
+                    <label asp-for="EventUpdates"></label>
+                </label>
+                <label>
+                    <input asp-for="StartupsWeekly" />
+                    <label asp-for="StartupsWeekly"></label>
+                </label>
+                <label>
+                    <input asp-for="Podcasts" />
+                    <label asp-for="Podcasts"></label>
+                </label>
+
+
+            </div>
+            <div class="subscribe-here" id="form-email">
+                <input asp-for="Email" type="email" class="form-control" />
+
+
+                <button class="btn-theme" type="submit">Subscribe *</button>
+            </div>
+
+
+            <div class="terms">
+
+
+                <label for=""><input type="checkbox" name="terms" required> *Yes, I agree to the <a href="terms-and-privacy.html">terms and privacy policy.</a></input></label>
+            </div>
+        </form>
+        <br />
+        <span class="information  text-center  ">
+
+            @if (ViewData["Status"]?.ToString() == "Success")
+            {
+                <span class="alert alert-success">You have been subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "AlreadyExists")
+            {
+                <span class="alert alert-warning">You have already subscribed</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "Invalid")
+            {
+                <span class="alert alert-danger">You must enter a valid email address</span>
+            }
+            else if (ViewData["Status"]?.ToString() == "ConnectionFailed")
+            {
+                <span class="alert alert-danger">Unable to contact the server. Please try again later.</span>
+            }
+            else
+            {
+                @*  <span class="alert">* Yes, I agree to the terms and privacy policy.</span> *@
+            }
+
+        </span>
+    </div>
+</section>
+
+
+@await Html.PartialAsync("_ValidationScriptPartial")

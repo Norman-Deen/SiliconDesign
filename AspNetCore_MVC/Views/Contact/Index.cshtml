@@ -1,0 +1,71 @@
+﻿
+
+
+<section class="contact">
+    <div class="container">
+        <div class="courses-bread mt-5">
+            <a href="@Url.Action("Index", "Home")"><i class="fa-regular fa-house me-2"></i>Home </a>
+            <i class="fa-regular fa-angles-right"></i>
+            <a> Contact</a>
+        </div>
+       
+        <div class="upper mt-5">
+            <h1>Contact Us</h1>
+            <div class="box">
+                <div class="row">
+                    <div class="col-md-1 img-holder">
+                        <img src="~/images/icons/mail-icon.svg" />
+                    </div>
+                    <div class="col-md-3 box-content">
+                        <h5>Email Us</h5>
+                        <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
+                        <a href="#">Leave a message <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-1 img-holder">
+                    <img src="~/images/icons/careers-icon.svg" />
+                </div>
+                <div class="col-md-3 box-content">
+                    <h5>Careers</h5>
+                    <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
+                    <a href="#">Send an application <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="contact-form">
+            <form method="post" asp-controller="Contact" asp-action="ContactUs" novalidate>
+             
+                <div class="form-content">
+                    <div id="form-fullName" class="input-group">
+                       
+                    </div>
+                    <div id="form-email" class="input-group">
+                        
+                    </div>
+                    <div id="form-service" class="input-group">
+                       
+                        </select>
+                    </div>
+                    <div id="form-message" class="input-group">
+                       
+                    </div>
+                   
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="map d-flex justify-content-center align-items-center mt-5">
+        <img src="~/images/Contact_Map.jpg" />
+    </div>
+
+</section>
+
+
+

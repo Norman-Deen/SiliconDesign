@@ -1,0 +1,170 @@
+﻿@model WebApi.Entities.CourseEntity
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<section id="courses-details">
+    <div class="overlay">
+        <img class="header-img-background" src="~/Images/Courses/@Model.CourseImagePath" alt="Course Image">
+    </div>
+
+    <div class="container">
+
+        <header>
+            <nav class="breadcrumb">
+                <a href="/"><i class="fa-sharp fa-regular fa-house"></i> Home</a>
+                <i class="fa-light fa-angles-right"></i>
+                <a class="active" href="#">Courses</a>
+                <i class="fa-light fa-angles-right"></i>
+                <a class="active" href="#">@Model.Title</a>
+            </nav>
+            <div class="button-group">
+                <button class="best-seller">Best seller</button>
+                <button class="digital">Digital</button>
+            </div>
+            <h1>@Model.Title</h1>
+            <p>@Model.TitleDescription</p>
+
+            <div class="duration-rating">
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star not-active"></i>
+                </div>
+                <p>4.5K reviews</p>
+                <span> | </span>
+
+                <p><i class="fa-sharp fa-light fa-thumbs-up"></i>@Model.LikesInNumbers</p>
+                <span> | </span>
+
+                <div class="duration"><i class="fa-regular fa-clock"></i>@Model.Hours</div>
+            </div>
+
+            <div class="author-container">
+                <img style="max-width: 50px; border-radius: 50%;" src="~/images/Courses/author-avatar.png" />
+
+                <div class="author">
+                    <h6>Created by</h6>
+                    <p>@Model.Author</p>
+                </div>
+            </div>
+        </header>
+        <div class="content">
+            <div class="description">
+                <h2>Course Description</h2>
+                <p>@Model.CourseDescription</p>
+                <h4>What you'll learn</h4>
+                <div class="list">
+                    <p><i class="fa-regular fa-circle-check"></i>@Model.CourseGoal1</p>
+                    <p><i class="fa-regular fa-circle-check"></i>@Model.CourseGoal2</p>
+                    <p><i class="fa-regular fa-circle-check"></i>@Model.CourseGoal3</p>
+                    <p><i class="fa-regular fa-circle-check"></i>@Model.CourseGoal4</p>
+                    <p><i class="fa-regular fa-circle-check"></i>@Model.CourseGoal5</p>
+                </div>
+            </div>
+            <div class="info-card">
+                <h4>This course includes:</h4>
+                <p><i class="fa-solid fa-display"></i>@Model.CourseIncludes1</p>
+                <p><i class="fa-regular fa-file-lines"></i>@Model.CourseIncludes2</p>
+                <p><i class="fa-regular fa-down-to-bracket"></i>@Model.CourseIncludes3</p>
+                <p><i class="fa-regular fa-infinity"></i>@Model.CourseIncludes4</p>
+                <p><i class="fa-regular fa-trophy"></i>@Model.CourseIncludes5</p>
+                <h3>
+                    $@Model.DiscountPrice <span>$@Model.OriginalPrice</span>
+                </h3>
+                <form method="post">
+                    <input type="hidden" value="courseId" />
+                    <button type="submit" class="btn-theme-s">Join course</button>
+                </form>
+
+            </div>
+        </div>
+
+        <div class="program-detail">
+            <h2>Program Details</h2>
+            <div class="step-container">
+                <div class="step">
+                    <div class="number">
+                        <h2>1</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle1</h3>
+                        <p>@Model.ProgramDetailDescription1</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">
+                        <h2>2</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle2</h3>
+                        <p>@Model.ProgramDetailDescription2</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">
+                        <h2>3</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle3</h3>
+                        <p>@Model.ProgramDetailDescription3</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">
+                        <h2>4</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle4</h3>
+                        <p>@Model.ProgramDetailDescription4</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">
+                        <h2>5</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle5</h3>
+                        <p>@Model.ProgramDetailDescription5</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">
+                        <h2>6</h2>
+                    </div>
+                    <div class="text">
+                        <h3>@Model.ProgramDetailTitle6</h3>
+                        <p>@Model.ProgramDetailDescription6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="author-info">
+            <img style="max-width: 470px; height: auto;" src="~/images/Courses/author-avatar.png" />
+
+            <div class="text-block">
+                <p>Learn from the best</p>
+                <h1>@Model.Author</h1>
+                <p>@Model.AuthorDescription</p>
+                <div class="buttons">
+                    <a class="btn-red"><i class="fa-brands fa-youtube"></i>1.5k subscribers</a>
+                    <a class="btn-gray"><i class="fa-brands fa-square-facebook"></i>2.3k followers</a>
+                </div>
+                <img class="decor" src="~/images/Courses/pattern.svg" />
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
