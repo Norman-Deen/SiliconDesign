@@ -35,12 +35,7 @@ SiliconDesign/
 
 ---
 
-## 🌐 Live Preview
 
-> _(Optional)_ If deployed, add link here:
-[🔗 View Demo](https://your-demo-link.com)
-
----
 
 ## 📄 License
 
